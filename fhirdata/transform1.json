@@ -1,0 +1,98 @@
+{
+  "name": "transform1",
+  "scanId": 1,
+  "description": "",
+  "resources": [
+    {
+      "resourceType": "QuestionnaireResponse",
+      "columns": [
+        {
+          "name": "Name",
+          "type": "String",
+          "path": "QuestionnaireResponse.item.where(text = 'Name').answer.valueString",
+          "index": false,
+          "dataIndex": false,
+          "length": 100,
+          "RENAMED": "QuestionnaireResponseItemAnswerValueString"
+        },
+        {
+          "name": "DOB",
+          "type": "String",
+          "path": "QuestionnaireResponse.item.where(text = 'Date of Birth').answer.valueDate",
+          "index": false,
+          "dataIndex": false,
+          "length": 10,
+          "RENAMED": "QuestionnaireResponseItemAnswerValueDate"
+        },
+        {
+          "name": "Medication",
+          "type": "String",
+          "path": "QuestionnaireResponse.item.where(text = 'Medication').answer.valueString",
+          "index": false,
+          "dataIndex": false,
+          "length": 100,
+          "RENAMED": "QuestionnaireResponseItemAnswerValueString"
+        },
+        {
+          "name": "Allergies",
+          "type": "String",
+          "path": "QuestionnaireResponse.item.where(text = 'Allergies').answer.valueString",
+          "index": false,
+          "dataIndex": false,
+          "length": 100,
+          "RENAMED": "QuestionnaireResponseItemAnswerValueString"
+        },
+        {
+          "name": "FamilyHistory",
+          "type": "String",
+          "path": "QuestionnaireResponse.item.where(text = 'Family History').answer.valueString",
+          "index": false,
+          "dataIndex": false,
+          "length": 100,
+          "RENAMED": "QuestionnaireResponseItemAnswerValueString"
+        },
+        {
+          "name": "Street",
+          "type": "String",
+          "path": "QuestionnaireResponse.item.where(text = 'Address').item.where(text = 'Street').answer.valueString",
+          "index": false,
+          "dataIndex": false,
+          "length": 50,
+          "RENAMED": "QuestionnaireResponseItemItemAnswerValueString"
+        },
+        {
+          "name": "City",
+          "type": "String",
+          "path": "QuestionnaireResponse.item.where(text = 'Address').item.where(text = 'City').answer.valueString",
+          "index": false,
+          "dataIndex": false,
+          "length": 50,
+          "RENAMED": "QuestionnaireResponseItemItemAnswerValueString"
+        },
+        {
+          "name": "State",
+          "type": "String",
+          "path": "QuestionnaireResponse.item.where(text = 'Address').item.where(text = 'State').answer.valueString",
+          "index": false,
+          "dataIndex": false,
+          "length": 50,
+          "RENAMED": "QuestionnaireResponseItemItemAnswerValueString"
+        },
+        {
+          "name": "PostalCode",
+          "type": "String",
+          "path": "QuestionnaireResponse.item.where(text = 'Address').item.where(text = 'Postal Code').answer.valueString",
+          "index": false,
+          "dataIndex": false,
+          "length": 50,
+          "RENAMED": "QuestionnaireResponseItemItemAnswerValueString"
+        }
+      ]
+    }
+  ],
+  "version": 1,
+  "scanStartDateTime": "2025-11-14T19:23:31Z",
+  "scanFHIRRepositoryName": "FHIRSERVER",
+  "id": 1,
+  "lastModified": "2025-11-14T19:25:50.311Z"
+}
