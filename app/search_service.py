@@ -8,10 +8,8 @@ from openai import OpenAI
 
 load_dotenv()
 
-# OpenAI client
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-# ------------------- LLM helpers -------------------
 def send_to_llm(messages, **kwargs):
     completion = client.chat.completions.create(
         model=os.getenv("OPENAI_MODEL"),
@@ -77,7 +75,6 @@ def vector_patient_search(
     return df[cols].to_dict(orient="records")
 
 
-# ------------------- Chat glue -------------------
 SAFE_FIELDS = ["Name", "DOB", "Medication", "Allergies", "FamilyHistory", "City", "State"]
 
 def _rows_to_batch(rows: List[Dict], safe_fields=SAFE_FIELDS) -> str:
