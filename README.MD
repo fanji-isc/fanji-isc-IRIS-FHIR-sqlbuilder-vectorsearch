@@ -4,13 +4,6 @@ This repository demonstrates a Proof of Concept (PoC) application leveraging **I
 ## Overview
 This project enables **semantic search on FHIR data** using InterSystems IRIS. By combining the **FHIR SQL Builder** (for relational projection) with **Vector Search** (for meaning-based retrieval), it allows users to query clinical records using natural language, effectively bridging the gap between complex FHIR structures and human-readable search.
 
-## Features
-* **FHIR Repository Integration**: Automated setup and loading of sample FHIR datasets.
-* **SQL Projection**: Usage of InterSystems FHIR SQL Builder to expose FHIR data as relational tables without moving data.
-* **Vector Database**: Utilization of InterSystems IRIS to store and query high-dimensional embeddings.
-* **Semantic Search**: Find clinical records based on meaning (e.g., "heart issues" matches "cardiac arrest").
-* **Containerized**: Fully Dockerized setup for easy deployment.
-
 ## Getting Started
 
 ### Installation
@@ -29,27 +22,40 @@ This project enables **semantic search on FHIR data** using InterSystems IRIS. B
         * **Password**: ISCDEMO
 
     In IRIS Portal, navigate to Health--> FHIR Server Management-->FHIR SQL Builder(left side menu), fill out each section with below information.
+
     * **Analysis**
+        * Click <img src="./images/new1.png" alt="new1" width="50"/>, then under FHIR Repository,click <img src="./images/new2.png" alt="new2" width="50"/>,
+        fill out the form with below information
         * **Name:FHIRSERVER**
         * **Host:localhost**
         * **Port:52773**
-        * **Credentials:New**
+        * **Credentials: <img src="./images/new2.png" alt="new2" width="50"/>**
             * **Name:Admin**
             * **Username:_SYSTEM**
             * **Password:ISCDEMO**
         * **FHIR Repository URL: /csp/healthshare/demo/fhir/r4**
+        * Click **Save**
+
+        <img src="./images/analysis1.png" alt="analysis1" width="400"/>
+
+
 
         In the New FHIR Analysis
         * **FHIR Repository: FHIRSERVER**
         * **Selectivity Percentage:100**
     
+        <img src="./images/analysis2.png" alt="analysis2" width="400"/>
+
     * **Transformation Specifications**
         * Click **Import** and select the `transform1.json` file located in the `fhirdata/` folder of this repository.
 
     * **Projections**
+        * Click <img src="./images/new1.png" alt="new1" width="50"/>, fill out the form with below information
         * **FHIR Repository:FHIRSERVER**
         * **Transformation Specification:transform1**
         * **Package Name:sql1**
+
+        <img src="./images/projection.png" alt="projection" width="400"/>
 
 4.  **Accessing FHIR Data via SQL**
 
@@ -75,13 +81,11 @@ This project enables **semantic search on FHIR data** using InterSystems IRIS. B
 
 6. **Useage & Demo**
 
-    Vector Search
-    > **Example: Searching for "diabetes medication"**
-    > Searching for **"diabetes medication"** returns not only patients taking drugs like `metformin`, `insulin glargine`, or `acarbose`, but also those whose family history includes **Type 1** or **Type 2 diabetes**. This demonstrates how IRIS Vector Search connects related medical concepts across different fields, such as medications and family history.
+    
+    * A search for “diabetes medication” retrieves responses mentioning drugs like metformin, insulin glargine, or acarbose—even if the exact phrase isn’t present.
+    
+    ![vecsearch](./images/vectorsearch.png)
 
-    RAG
-    > **Example: Multi-Condition Patient Query**
-    > When a user asks, **“Which patients have a family history of heart disease and are currently prescribed cholesterol-lowering medication?”**, the system semantically retrieves relevant data from family history and medication fields — identifying links between terms like **cardiac conditions**, **heart failure**, or **coronary disease** with drugs such as `propranolol`, `spironolactone`, or `atorvastatin`.
-    > 
-    > The LLM then summarizes these findings in natural language, giving clinicians a quick overview of at-risk patients without manual filtering or query writing.
+    * When a user asks, “Which patients have a family history of heart disease and take cholesterol-lowering medication?”, the system semantically links related data—connecting cardiac conditions with drugs like propranolol, spironolactone, or atorvastatin—and produces a concise summary of at-risk patients. 
 
+    ![rag](./images/rag.png)
