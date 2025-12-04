@@ -118,7 +118,10 @@ Before running this project, make sure you have the following:
 
        This shows the benefit of semantic search: users don’t need to know exact database fields, FHIR structure, or medication names. The system interprets clinical meaning, retrieves the most relevant information, and summarizes it in a human-readable form.
 
-    Users can explore additional prompts such as:
-    * “I will see Luna Walker today. Please summarize this patient’s medical history.”
-    * "Which patients may require follow-up based on their questionnaire responses?"
+    * Users can explore additional prompts such as:
+
+        “I will see Luna Walker today. Please summarize this patient’s medical history.”
+
+        "Which patients may require follow-up based on their questionnaire responses?"
+        
     ![rag](./images/rag.png)
