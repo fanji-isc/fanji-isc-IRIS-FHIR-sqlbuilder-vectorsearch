@@ -2,21 +2,31 @@
 This repository demonstrates a Proof of Concept (PoC) application leveraging **InterSystems IRIS For Health** to perform semantic search on FHIR data. It combines the capabilities of the **FHIR SQL Builder** for relational data projection and **Vector Search** for meaning-based retrieval.
 
 ## Overview
-This project enables **semantic search on FHIR data** using InterSystems IRIS. By combining the **FHIR SQL Builder** (for relational projection) with **Vector Search** (for meaning-based retrieval), it allows users to query clinical records using natural language, effectively bridging the gap between complex FHIR structures and human-readable search.
+This project supports semantic search on FHIR data using InterSystems IRIS. By combining the **FHIR SQL Builder** with **Vector Search**, it allows users to query clinical records in natural language, bridging the gap between complex FHIR structures and human-readable search.
 
-## Getting Started
+In this project, we work with **FHIR Questionnaire** and **QuestionnaireResponse** data from 100 patients, containing names, family history, allergies, and other information. While this data is standardized, its nested structure makes it challenging to query directly. By flattening the data into relational tables and generating semantic embeddings, we implement intuitive, meaning-based search—allowing users to find relevant patient information without needing to understand FHIR’s complexity.
 
-### Installation
-1.  **Clone the repository**
-    ```bash
-    git clone [https://github.com/fanji-isc/IRIS-FHIR-sqlbuilder-vectorsearch.git](https://github.com/fanji-isc/IRIS-FHIR-sqlbuilder-vectorsearch.git)
-    cd IRIS-FHIR-sqlbuilder-vectorsearch
-    ```
-    
+## Prerequisites
+Before running this project, make sure you have the following:
+1. **OpenAI API Key**
+
     Edit the existing `.env` file and replace the placeholder with your own key:
     ```bash
     OPENAI_API_KEY= your_api_key_here
     ```
+2.  **Docker**
+
+    Used to run InterSystems IRIS and supporting services in a containerized environment.
+    Install Docker from: https://www.docker.com/get-started
+
+
+### Installation
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/fanji-isc/IRIS-FHIR-sqlbuilder-vectorsearch.git
+    cd IRIS-FHIR-sqlbuilder-vectorsearch
+    ```
+    
 2.  **Build and Start IRIS For Health**
     ```bash
     docker-compose up -d --build iris4health
